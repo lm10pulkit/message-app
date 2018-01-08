@@ -1,0 +1,27 @@
+</body>
+<style>
+body { 
+    background: lightblue url("img_tree.gif") no-repeat fixed center; 
+}
+</style>
+<p>you are now connected to {{to}}</p>
+<p>messages</p>
+<ul>
+{{# each messages}}
+<li> {{this.from}} : {{this.text}}</li>
+{{/each}}
+</ul>
+<form  method ='post' action='/createmessage?to={{to}}' > 
+ text : <input type ='text' name='text'> <br></br>
+ <input type ='submit' value='send text'>
+</form>
+<form method ='post' action='/deletemessage?to={{to}}'>
+	<input type='submit' value ='delete all your messages'>
+</form>	
+<form method='get' action='/logout'>
+  <input type='submit' value='logout'>
+</form>
+<form method='get' action='/delete'>
+  <input type='submit' value='delete'>
+</form>
+</body>
